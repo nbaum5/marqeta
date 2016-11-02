@@ -3,6 +3,11 @@ require 'httparty'
 module Marqeta
   class Request
     @@default_options = nil
+    @@debug_mode = false
+
+    def self.set_debug_mode(val)
+      @@debug_mode = val
+    end
 
     def self.default_options
       return @@default_options if @@default_options
@@ -11,7 +16,8 @@ module Marqeta
       @@default_options = { :basic_auth => { :username => Marqeta.config.username,
                                              :password => Marqeta.config.password },
                             :headers => { 'content-type' => 'application/json',
-                                          'accept' => 'application/json' }
+                                          'accept' => 'application/json' },
+                            :debug_output => (@@debug_mode ? $stdout : nil)
                           }
 
       # Set proxy if production. Heroku doesn't have a static IP, so we
