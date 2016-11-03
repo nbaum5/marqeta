@@ -30,7 +30,7 @@ module Marqeta
                           :http_proxyuser => proxy_uri.user,
                           :http_proxypass => proxy_uri.password
                         }
-        @@default_options |= proxy_options
+        @@default_options.merge!(proxy_options)
       end
 
       @@default_options
