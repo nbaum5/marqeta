@@ -61,4 +61,11 @@ module Marqeta
       Request.post(path, options)
     end
   end
+
+  class Transaction
+    def self.list(options)
+      path = "/transactions"
+      Request.get(path, options)
+    end
+  end
 end

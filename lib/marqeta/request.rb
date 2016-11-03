@@ -41,6 +41,7 @@ module Marqeta
     end
 
     def self.get(path, data={})
+      path += URI.encode_www_form(data)
       HTTParty.get(get_url(path), default_options)
     end
     def self.post(path, data={})
