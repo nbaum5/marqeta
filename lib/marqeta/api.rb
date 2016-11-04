@@ -39,6 +39,17 @@ module Marqeta
       SYSTEM = "SYSTEM"
       UNSUPPORTED = "UNSUPPORTED"
     end
+    module Fulfillment
+      module Status
+        ISSUED = "ISSUED"
+        ORDERED = "ORDERED"
+        REORDERED = "REORDERED"
+        REJECTED = "REJECTED"
+        SHIPPED = "SHIPPED"
+        DELIVERED = "DELIVERED"
+        DIGITALLY_PRESENTED = "DIGITALLY_PRESENTED"
+      end
+    end
 
     def self.create(options)
       path = "/cards"
