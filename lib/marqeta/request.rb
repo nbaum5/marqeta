@@ -41,7 +41,7 @@ module Marqeta
     end
 
     def self.get(path, data={})
-      path += URI.encode_www_form(data)
+      path = [path, URI.encode_www_form(data)].join('?') if data.present?
       HTTParty.get(get_url(path), default_options)
     end
     def self.post(path, data={})
