@@ -71,6 +71,18 @@ module Marqeta
       path = "/gpaorders"
       Request.post(path, options)
     end
+    def self.retrieve_gpa_order(token)
+      path = "/gpaorders/#{token}"
+      Request.get(path)
+    end
+    def self.unload_gpa_order(options)
+      path = "/gpaorders/unloads"
+      Request.post(path, options)
+    end
+    def self.retrieve_gpa_unload(token)
+      path = "/gpaorders/unloads/#{token}"
+      Request.get(path)
+    end
   end
 
   class Transaction
