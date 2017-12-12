@@ -23,6 +23,10 @@ module Marqeta
       path = '/users/auth/onetime'
       Request.post(path, options)
     end
+    def self.create_client_access_token(card_token)
+      path = "/users/auth/clientaccesstoken"
+      Request.post(path, {card_token: card_token})
+    end
   end
 
   class Card
