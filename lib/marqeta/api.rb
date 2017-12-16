@@ -79,6 +79,10 @@ module Marqeta
       path = "/bulkissuances/#{token}"
       Request.get(path)
     end
+    def self.list(options={})
+      path = "/bulkissuances"
+      Request.get(path, options)
+    end
   end
 
   class Order
@@ -101,7 +105,7 @@ module Marqeta
   end
 
   class Transaction
-    def self.list(options)
+    def self.list(options={})
       path = "/transactions"
       Request.get(path, options)
     end
@@ -116,9 +120,9 @@ module Marqeta
       path = "/cardproducts/#{token}"
       Request.get(path)
     end
-    def self.list
+    def self.list(options={})
       path = "/cardproducts"
-      Request.get(path)
+      Request.get(path, options)
     end
   end
 end
