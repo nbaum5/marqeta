@@ -37,7 +37,7 @@ module Marqeta
     end
 
     def self.get_url(path)
-      [Marqeta.config.host, Marqeta.config.version, path].join('/')
+      [Marqeta.config.host, Marqeta.config.version, path].join('/').gsub(/([^:])\/\//, '\1/')
     end
 
     def self.get(path, data={})
