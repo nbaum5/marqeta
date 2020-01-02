@@ -111,6 +111,31 @@ module Marqeta
     end
   end
 
+  class FeeTransfer
+    def self.create(options={})
+      path = "/feetransfers"
+      Request.post(path, options)
+    end
+    def self.find(token)
+      path = "/feetransfers/#{token}"
+      Request.get(path)
+    end
+  end
+
+  class ProgramTransfer
+    def self.list(options={})
+      path = "/programtransfers"
+    end
+    def self.create(options={})
+      path = "/programtransfers"
+      Request.post(path, options)
+    end
+    def self.find(token)
+      path = "/programtransfers/#{token}"
+      Request.get(path)
+    end
+  end
+
   class CardProduct
     def self.create(options)
       path = "/cardproducts"
@@ -123,6 +148,33 @@ module Marqeta
     def self.list(options={})
       path = "/cardproducts"
       Request.get(path, options)
+    end
+  end
+
+  class Webhook
+    def self.list(options={})
+      path = "/webhooks"
+      Request.get(path, options)
+    end
+    def self.create(options={})
+      path = "/webhooks"
+      Request.post(path, options)
+    end
+    def self.find(token)
+      path = "/webhooks/#{token}"
+      Request.get(path)
+    end
+    def self.update(token)
+      path = "/webhooks/#{token}"
+      Request.put(path)
+    end
+    def self.ping(token)
+      path = "/webhooks/#{token}/ping"
+      Request.get(path)
+    end
+    def self.resend_event_notification(token, event)
+      path = "/webhooks/#{token}/#{event[:type]}/#{event[:token]}"
+      Request.post(path, {})
     end
   end
 end
