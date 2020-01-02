@@ -125,6 +125,7 @@ module Marqeta
   class ProgramTransfer
     def self.list(options={})
       path = "/programtransfers"
+      Request.get(path)
     end
     def self.create(options={})
       path = "/programtransfers"
