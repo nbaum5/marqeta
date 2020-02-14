@@ -137,6 +137,25 @@ module Marqeta
     end
   end
 
+  class ProgramTransferType
+    def self.list(options={})
+      path = "/programtransfers/types"
+      Request.get(path, options)
+    end
+    def self.find(token)
+      path = "/programtransfers/types/#{token}"
+      Request.get(path)
+    end
+    def self.create(options={})
+      path = "/programtransfers/types"
+      Request.post(path, options)
+    end
+    def self.update(token, options)
+      path = "/programtransfers/types/#{token}"
+      Request.put(path, options)
+    end
+  end
+
   class CardProduct
     def self.create(options)
       path = "/cardproducts"
