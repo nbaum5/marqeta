@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'marqeta'
-  s.version     = '0.0.7'
+  s.version     = '0.0.8'
   s.summary     = "Marqeta API wrapper"
   s.description = "Marqeta API wrapper"
   s.authors     = ["nb"]
